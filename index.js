@@ -13,13 +13,13 @@ const { getBuffer, Base64, Spam, SpamP, SpamX, Muted } = require('./lib/function
 let sys = require('util')
 let exec = require('child_process').exec;
 
-rimraf('./assets/downloads/*', function () {
-    console.log('Data Dihapus!')
-})
+// rimraf('./assets/downloads/*', function () {
+//     console.log('Data Dihapus!')
+// })
 
 
 const startSock = async (anu) => {
-    const { state, saveCreds } = await useMultiFileAuthState('multi_state/state')
+    const { state, saveState } = useSingleFileAuthState(`session.json`)
     // fetch latest version of WA Web
     const { version, isLatest } = await fetchLatestBaileysVersion()
     console.log(`using WA v${version.join('.')}, isLatest: ${isLatest}`)
@@ -152,13 +152,13 @@ const startSock = async (anu) => {
                     + 'VERSION:3.0\n'
                     + 'FN:Owner \n' // full name
                     + 'ORG:Blessing Software;\n' // the organization of the contact
-                    + 'TEL;type=CELL;type=VOICE;waid=62895627514070:+62 895 6275 14070\n' // WhatsApp ID + phone number
+                    + 'TEL;type=CELL;type=VOICE;waid=6289515275674:+62 895 1527 5674\n' // WhatsApp ID + phone number
                     + 'END:VCARD'
                 const sentMsg = await sock.sendMessage(
                     call.from,
                     {
                         contacts: {
-                            displayName: 'Rayy',
+                            displayName: 'Yae',
                             contacts: [{ vcard }]
                         }
                     }
@@ -207,11 +207,11 @@ const startSock = async (anu) => {
                                     text: Welcomer, contextInfo: {
                                         mentionedJid: [num],
                                         externalAdReply: {
-                                            title: "SakuraBot",
+                                            title: "𝕄𝕖𝕘𝕦𝕞𝕚 𝕂𝕒𝕥𝕠𝕦",
                                             body: "❦ Selamat Datang",
                                             mediaType: 0,
                                             thumbnail: ppuser,
-                                            sourceUrl: 'https://wa.me/62895627514070',
+                                            sourceUrl: 'https://bit.ly/3eQfDdQ',
                                             containsAutoReply: false,
                                             renderLargerThumbnail: false,
                                             showAdAttribution: false
@@ -230,11 +230,11 @@ const startSock = async (anu) => {
                                     text: Bye, contextInfo: {
                                         mentionedJid: [num],
                                         externalAdReply: {
-                                            title: "SakuraBot",
+                                            title: "𝕄𝕖𝕘𝕦𝕞𝕚 𝕂𝕒𝕥𝕠𝕦",
                                             body: "❦ Bye Bye..",
                                             mediaType: 0,
                                             thumbnail: ppuser,
-                                            sourceUrl: 'https://wa.me/62895627514070',
+                                            sourceUrl: 'https://bit.ly/3eQfDdQ',
                                             containsAutoReply: false,
                                             renderLargerThumbnail: false,
                                             showAdAttribution: false
